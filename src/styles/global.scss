@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 * {
   margin: 0;
@@ -29,6 +29,51 @@ h2,
   font-size: 2.1rem;
   font-weight: 500;
   color: $black;
+}
+
+p,
+.p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: $text;
+}
+
+.btn {
+  border: none;
+  padding: 1rem 4rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 500;
+  outline: none;
+  transition: background 0.2s;
+
+  &.btn-primary {
+    background-color: $income;
+    color: $white;
+
+    &:hover {
+      background-color: lighten($income, 3);
+    }
+  }
+}
+
+input[type="text"] {
+  border: 1px solid $text;
+  border-radius: 5px;
+  padding: 0.8rem 1rem;
+  color: $text;
+  font-family: $fontFamily;
+  outline: none;
+
+  &::placeholder {
+    font-weight: 300;
+    color: rgba($text, 0.5);
+  }
+
+  &.max-width {
+    max-width: 13rem;
+  }
 }
 
 .icon {

@@ -1,5 +1,6 @@
 import styles from './AllCards.module.scss'
 import { CategoryCard } from './CategoryCard'
+import { AddAmount } from './modals/AddAmount'
 import { NoCard } from './NoCard'
 
 const DUMMY_DATA = [
@@ -29,9 +30,12 @@ export function AllCards() {
   ))
 
   return (
-    <section className={styles.section}>
-      {cards}
-      <NoCard />
-    </section>
+    <>
+      <AddAmount />
+      <section className={styles.section}>
+        {cards}
+        <NoCard />
+      </section>
+    </>
   )
 }
