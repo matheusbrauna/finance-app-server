@@ -5,15 +5,15 @@ import { CategoryMenu } from './CategoryMenu'
 import { useMenu } from '../../hooks/useMenu'
 
 interface CategoryCardProps {
-  category: {
+  data: {
     title: string
     amount: number
     percentage: number
   }
 }
 
-export function CategoryCard({ category }: CategoryCardProps) {
-  const { title, amount, percentage } = category
+export function CategoryCard({ data }: CategoryCardProps) {
+  const { title, amount, percentage } = data
   const { isMenuVisible, handleToggleMenu } = useMenu()
   const { currency } = useGetCurrency(amount)
 
@@ -22,7 +22,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
       <div className={styles.edit}>
         <TbPencil className="icon hover" onClick={handleToggleMenu} />
         {isMenuVisible && (
-          <CategoryMenu onHandleToggleMenu={handleToggleMenu} />
+          <CategoryMenu onHandleToggleMenu={handleToggleMenu} data={data} />
         )}
       </div>
       <h2>{title}</h2>
