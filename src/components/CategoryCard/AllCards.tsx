@@ -1,6 +1,10 @@
 import styles from './AllCards.module.scss'
 import { CategoryCard } from './CategoryCard'
 import { AddAmount } from './modals/AddAmount'
+import { AddCategory } from './modals/AddCategory'
+import { EditCategory } from './modals/EditCategory'
+import { SubtractAmount } from './modals/SubtractAmount'
+import { TransferAmount } from './modals/TransferAmount'
 import { NoCard } from './NoCard'
 
 const DUMMY_DATA = [
@@ -26,12 +30,16 @@ const DUMMY_DATA = [
 
 export function AllCards() {
   const cards = DUMMY_DATA.map((category) => (
-    <CategoryCard key={category.id} category={category} />
+    <CategoryCard key={category.id} data={category} />
   ))
 
   return (
     <>
       <AddAmount />
+      <SubtractAmount />
+      <TransferAmount />
+      <EditCategory />
+      <AddCategory />
       <section className={styles.section}>
         {cards}
         <NoCard />

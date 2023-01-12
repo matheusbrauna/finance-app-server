@@ -1,18 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../store'
-import { toggleAddAmount } from '../../../store/slices/ui-slice'
+import { toggleSubtractAmount } from '../../../store/slices/ui-slice'
 import { Modal } from '../../UI/Modal'
 import styles from '../../UI/Modal.module.scss'
 
-export function AddAmount() {
-  const { isVisible } = useSelector((state: RootState) => state.ui.addAmount)
+export function SubtractAmount() {
+  const { isVisible } = useSelector(
+    (state: RootState) => state.ui.subtractAmount,
+  )
   const dispatch = useDispatch()
 
   return (
     <Modal
       isOpen={isVisible}
-      onClose={() => dispatch(toggleAddAmount(null))}
-      title="Adicionar"
+      onClose={() => dispatch(toggleSubtractAmount(null))}
+      title="Descontar"
     >
       <div>
         <form>
@@ -24,7 +26,7 @@ export function AddAmount() {
               type="text"
               id="title"
               name="title"
-              placeholder="Ex: venda do teclado"
+              placeholder="Ex: gasolina do carro"
             />
           </div>
           <div className={styles['label-input']}>
@@ -41,7 +43,7 @@ export function AddAmount() {
           </div>
           <div className={styles.buttons}>
             <button type="submit" className="btn btn-primary">
-              Adicionar
+              Descontar
             </button>
           </div>
         </form>

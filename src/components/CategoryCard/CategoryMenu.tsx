@@ -1,6 +1,11 @@
 import { useDispatch } from 'react-redux'
 import { useCloseMenu } from '../../hooks/useCloseMenu'
-import { toggleAddAmount } from '../../store/slices/ui-slice'
+import {
+  toggleAddAmount,
+  toggleEditCategory,
+  toggleSubtractAmount,
+  toggleTransferAmount,
+} from '../../store/slices/ui-slice'
 import { CardMenu } from '../UI/CardMenu'
 
 interface CategoryMenuProps {
@@ -18,10 +23,10 @@ export function CategoryMenu({ onHandleToggleMenu, data }: CategoryMenuProps) {
 
   return (
     <CardMenu ref={menuRef}>
-      <li>Editar</li>
+      <li onClick={() => dispatch(toggleEditCategory(data))}>Editar</li>
       <li onClick={() => dispatch(toggleAddAmount(data))}>Adicionar</li>
-      <li>Descontar</li>
-      <li>Transferir</li>
+      <li onClick={() => dispatch(toggleSubtractAmount(data))}>Descontar</li>
+      <li onClick={() => dispatch(toggleTransferAmount(data))}>Transferir</li>
     </CardMenu>
   )
 }
